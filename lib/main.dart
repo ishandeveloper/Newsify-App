@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'views/home.dart';
+
 void main()=>runApp(NewsApp());
 
 class NewsApp extends StatelessWidget {
