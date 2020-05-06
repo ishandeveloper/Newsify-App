@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/blocs/theme.dart';
+import 'package:provider/provider.dart';
+
+bool lighttheme = true;
 
 class Home extends StatefulWidget {
   @override
@@ -8,13 +12,33 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
+    ThemeChanger _themechanger = Provider.of<ThemeChanger>(context);
     return Scaffold(
       appBar: AppBar(
+        actions: <Widget>[
+          IconButton(
+              icon: Icon(Icons.ac_unit),
+              onPressed: () {
+                lighttheme
+                    ? _themechanger.lightTheme()
+                    : _themechanger.darkTheme();
+                if (lighttheme == true) {
+                  lighttheme = false;
+                } else {
+                  lighttheme = true;
+                }
+                print(lighttheme);
+              })
+        ],
+        centerTitle: false,
+        elevation: 0,
         title: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
               'Newsify',
-              style: TextStyle(fontSize: 18),
+              style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20),
             ),
             Text(
               'by ishandeveloper',
