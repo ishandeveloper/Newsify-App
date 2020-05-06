@@ -3,7 +3,7 @@ import 'package:news_app/blocs/theme.dart';
 import 'package:provider/provider.dart';
 
 bool lighttheme = true;
-
+bool initial=true;
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
@@ -13,11 +13,12 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     ThemeChanger _themechanger = Provider.of<ThemeChanger>(context);
+    
     return Scaffold(
       appBar: AppBar(
         actions: <Widget>[
           IconButton(
-              icon: Icon(Icons.ac_unit),
+              icon: Icon(Icons.brightness_6,color: lighttheme?Colors.white:Colors.black,),
               onPressed: () {
                 lighttheme
                     ? _themechanger.lightTheme()
@@ -27,7 +28,6 @@ class _HomeState extends State<Home> {
                 } else {
                   lighttheme = true;
                 }
-                print(lighttheme);
               })
         ],
         centerTitle: false,

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 class ThemeChanger with ChangeNotifier {
-  ThemeData _themeData;
+
+  ThemeData _themeData=ThemeData.light();
 
   ThemeChanger(this._themeData);
+  
 
   getTheme() => _themeData;
 
@@ -20,12 +22,11 @@ class ThemeChanger with ChangeNotifier {
     notifyListeners();
   }
 
-
   darkTheme() {
     _themeData = ThemeData.light().copyWith(
-      scaffoldBackgroundColor: Colors.black,
+      scaffoldBackgroundColor: Colors.grey[850],
       appBarTheme: AppBarTheme(
-        color: Colors.black,
+        color: Colors.grey[900],
         textTheme: TextTheme(
           headline6: TextStyle(fontSize: 18, color: Colors.white),
         ),

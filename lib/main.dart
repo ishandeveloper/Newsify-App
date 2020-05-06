@@ -26,6 +26,15 @@ class NewsifyMaterialApp extends StatelessWidget {
     return MaterialApp(
         title: 'Newsify',
         theme: theme.getTheme(),
+        darkTheme: ThemeData.light().copyWith(
+          scaffoldBackgroundColor: Colors.black,
+          appBarTheme: AppBarTheme(
+            color: Colors.black,
+            textTheme: TextTheme(
+              headline6: TextStyle(fontSize: 18, color: Colors.white),
+            ),
+          ),
+        ),
         debugShowCheckedModeBanner: false,
         home: Home());
   }
