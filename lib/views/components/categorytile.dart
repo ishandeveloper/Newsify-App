@@ -11,7 +11,7 @@ class CategoryTile extends StatelessWidget {
         
       },
           child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 5),
+        padding: EdgeInsets.only(left: 5,right: 5),
         child: Stack(
           children: <Widget>[
             ClipRRect(
@@ -20,13 +20,13 @@ class CategoryTile extends StatelessWidget {
                 imageurl,
                 fit: BoxFit.cover,
                 width: 140,
-                height: 60,
+                height: 50,
               ),
             ),
             Container(
               alignment: Alignment.center,
               width: 140,
-              height: 60,
+              height: 50,
               decoration: BoxDecoration(
                   color: Colors.black38, borderRadius: BorderRadius.circular(15)),
               child: Text(

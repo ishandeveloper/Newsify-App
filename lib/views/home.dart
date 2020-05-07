@@ -67,7 +67,7 @@ class _HomeState extends State<Home> {
               children: <Widget>[
                 // //CATEGORIES
                 Container(
-                  height: 70,
+                  height: 60,
                   child: ListView.builder(
                     itemCount: categories.length,
                     shrinkWrap: true,
@@ -94,9 +94,10 @@ class _HomeState extends State<Home> {
                     : Container(
                         height: MediaQuery.of(context).size.height - 200,
                         child: RefreshIndicator(
-                          backgroundColor: lighttheme?Colors.black:Colors.white,
-                          color: lighttheme?Colors.white:Colors.black,
-                          onRefresh: ()=>getNews(),
+                          backgroundColor:
+                              lighttheme ? Colors.black : Colors.white,
+                          color: lighttheme ? Colors.white : Colors.black,
+                          onRefresh: () => getNews(),
                           child: ListView.builder(
                               shrinkWrap: true,
                               itemCount: articles.length,
