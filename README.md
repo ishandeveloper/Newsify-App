@@ -1,7 +1,7 @@
 [![HitCount](http://hits.dwyl.com/ishandeveloper/Newsify-App.svg)](http://hits.dwyl.com/ishandeveloper/Newsify-App)
 
 
-<img src="./screenshots/icon.png" width="200px">
+<img src="./screenshots/mockup.png" width="100%">
 
 # Newsify App
 
