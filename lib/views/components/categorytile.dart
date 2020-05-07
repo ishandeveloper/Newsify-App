@@ -20,13 +20,13 @@ class CategoryTile extends StatelessWidget {
                 imageurl,
                 fit: BoxFit.cover,
                 width: 140,
-                height: 75,
+                height: 60,
               ),
             ),
             Container(
               alignment: Alignment.center,
               width: 140,
-              height: 75,
+              height: 60,
               decoration: BoxDecoration(
                   color: Colors.black38, borderRadius: BorderRadius.circular(15)),
               child: Text(
