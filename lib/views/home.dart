@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:news_app/blocs/theme.dart';
 import 'package:news_app/helper/data.dart';
 import 'package:news_app/helper/newsapi.dart';
@@ -94,11 +93,14 @@ class _HomeState extends State<Home> {
                       )
                     : Container(
                         height: MediaQuery.of(context).size.height - 200,
-                        child: LiquidPullToRefresh(
-                          onRefresh: getNews,
+                        child: RefreshIndicator(
+                          backgroundColor: lighttheme?Colors.black:Colors.white,
+                          color: lighttheme?Colors.white:Colors.black,
+                          onRefresh: ()=>getNews(),
                           child: ListView.builder(
                               shrinkWrap: true,
                               itemCount: articles.length,
+                              physics: AlwaysScrollableScrollPhysics(),
                               itemBuilder: (context, index) {
                                 return ArticleCard(
                                   url: articles[index].url,
