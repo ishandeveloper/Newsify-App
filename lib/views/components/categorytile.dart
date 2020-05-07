@@ -9,12 +9,12 @@ class CategoryTile extends StatelessWidget {
     return Container(
       child: Stack(
         children: <Widget>[
-          Image.network(
+          Image.asset(
             imageurl,
             width: 120,
             height: 60,
           ),
-          Text(name)
+        
         ],
       ),
     );

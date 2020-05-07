@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/blocs/theme.dart';
+import 'package:news_app/helper/data.dart';
+import 'package:news_app/models/categoryModel.dart';
+import 'package:news_app/views/components/categorytile.dart';
 import 'package:provider/provider.dart';
 
 import 'components/title.dart';
@@ -13,32 +16,51 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  List<CategoryModel> categories = new List<CategoryModel>();
+
+  @override
+  void initState() {
+    super.initState();
+    categories = getCategories();
+  }
+
   @override
   Widget build(BuildContext context) {
     ThemeChanger _themechanger = Provider.of<ThemeChanger>(context);
 
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(80),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8),
-          child: AppBar(
-            leading: Icon(
-              Icons.receipt,
-              size: 30,
-              color: lighttheme ? Colors.white : Colors.black,
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(80),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8),
+            child: AppBar(
+              leading: Icon(
+                Icons.receipt,
+                size: 30,
+                color: lighttheme ? Colors.white : Colors.black,
+              ),
+              actions: appbarActions(_themechanger),
+              centerTitle: false,
+              elevation: 0,
+              title: NewsifyTitle(),
             ),
-            actions: appbarActions(_themechanger),
-            centerTitle: false,
-            elevation: 0,
-            title: NewsifyTitle(),
           ),
         ),
-      ),
-      body:Container(
-        
-      )
-    );
+        body: Column(
+          
+          children: <Widget>[
+            ListView.builder(
+              itemCount: categories.length,
+              shrinkWrap: true,
+              itemBuilder: (context, index) {
+                return CategoryTile(
+                  imageurl: categories[index].imageURL,
+                  name: categories[index].categoryName,
+                );
+              },
+            )
+          ],
+        ));
   }
 
   List<Widget> appbarActions(ThemeChanger _themechanger) {
