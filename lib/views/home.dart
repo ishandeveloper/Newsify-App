@@ -10,10 +10,11 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  
   @override
   Widget build(BuildContext context) {
     ThemeChanger _themechanger = Provider.of<ThemeChanger>(context);
-    
+  
     return Scaffold(
       appBar: AppBar(
         actions: <Widget>[
