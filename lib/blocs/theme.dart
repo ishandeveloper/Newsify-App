@@ -21,7 +21,7 @@ class ThemeChanger with ChangeNotifier {
   }
 
   getDarkTheme() {
-    _themeData = ThemeData.light().copyWith(
+    _themeData = ThemeData.dark().copyWith(
       scaffoldBackgroundColor: Colors.black,
       appBarTheme: AppBarTheme(
         color: Colors.black,
