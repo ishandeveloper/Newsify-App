@@ -98,6 +98,7 @@ class _HomeState extends State<Home> {
                             itemCount: articles.length,
                             itemBuilder: (context, index) {
                               return ArticleCard(
+                                url:articles[index].url,
                                 description: articles[index].description,
                                 title: articles[index].title,
                                 imageUrl: articles[index].imageUrl,
