@@ -19,20 +19,20 @@ class ArticleCard extends StatelessWidget {
           decoration: BoxDecoration(),
           child: Column(
             children: <Widget>[
-              Image.network(imageUrl),
+              Image.network(imageUrl,height: 200, width:500,fit: BoxFit.cover,),
+              SizedBox(height: 8,),
               Text(
                 title,
                 style: TextStyle(
-                  color: Colors.black,
                   fontFamily: 'Poppins',
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
               ),
+              SizedBox(height: 3,),
               Text(
                 description,
                 style: TextStyle(
-                  color: Colors.black,
                   fontFamily: 'Poppins',
                   fontSize: 14,
                 ),
