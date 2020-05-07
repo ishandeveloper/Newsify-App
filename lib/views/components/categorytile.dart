@@ -7,14 +7,33 @@ class CategoryTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.symmetric(horizontal: 5),
       child: Stack(
         children: <Widget>[
-          Image.asset(
-            imageurl,
-            width: 120,
-            height: 60,
+          ClipRRect(
+            borderRadius: BorderRadius.circular(15),
+            child: Image.asset(
+              imageurl,
+              fit: BoxFit.cover,
+              width: 140,
+              height: 75,
+            ),
           ),
-        
+          Container(
+            alignment: Alignment.center,
+            width: 140,
+            height: 75,
+            decoration: BoxDecoration(
+                color: Colors.black38, borderRadius: BorderRadius.circular(15)),
+            child: Text(
+              name,
+              style: TextStyle(
+                fontFamily: 'Poppins',
+                color: Colors.white,
+                fontSize: 15,
+              ),
+            ),
+          )
         ],
       ),
     );

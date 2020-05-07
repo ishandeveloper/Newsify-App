@@ -6,16 +6,15 @@ List<CategoryModel> getCategories() {
 
   //1
   categoryModel = new CategoryModel();
-  categoryModel.categoryName = "Business";
-  categoryModel.imageURL = "assets/hostedImages/covid19.jpg";
+  categoryModel.categoryName = "General";
+  categoryModel.imageURL = "assets/hostedImages/general.jpg";
   myCategories.add(categoryModel);
 
   //2
   categoryModel = new CategoryModel();
-  categoryModel.categoryName = "Entertainment";
-  categoryModel.imageURL = "assets/hostedImages/entertainment.jpg";
+  categoryModel.categoryName = "COVID-19";
+  categoryModel.imageURL = "assets/hostedImages/covid19.jpg";
   myCategories.add(categoryModel);
-
   //3
   categoryModel = new CategoryModel();
   categoryModel.categoryName = "Business";
@@ -23,12 +22,11 @@ List<CategoryModel> getCategories() {
   myCategories.add(categoryModel);
 
   //4
+
   categoryModel = new CategoryModel();
-  categoryModel.categoryName = "General";
-  categoryModel.imageURL = "assets/hostedImages/general.jpg";
+  categoryModel.categoryName = "Entertainment";
+  categoryModel.imageURL = "assets/hostedImages/entertainment.jpg";
   myCategories.add(categoryModel);
 
-
   return myCategories;
-
 }

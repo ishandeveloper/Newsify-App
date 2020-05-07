@@ -46,20 +46,27 @@ class _HomeState extends State<Home> {
             ),
           ),
         ),
-        body: Column(
-          
-          children: <Widget>[
-            ListView.builder(
-              itemCount: categories.length,
-              shrinkWrap: true,
-              itemBuilder: (context, index) {
-                return CategoryTile(
-                  imageurl: categories[index].imageURL,
-                  name: categories[index].categoryName,
-                );
-              },
-            )
-          ],
+        body: Container(
+          child: Column(
+            
+            children: <Widget>[
+              Container(
+                height: 100,
+                child: ListView.builder(
+                  itemCount: categories.length,
+                  shrinkWrap: true,
+                  
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return CategoryTile(
+                      imageurl: categories[index].imageURL,
+                      name: categories[index].categoryName,
+                    );
+                  },
+                ),
+              )
+            ],
+          ),
         ));
   }
 
