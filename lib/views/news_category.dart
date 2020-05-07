@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/helper/newsapi.dart';
-import 'package:news_app/models/article.dart';
+import 'package:Newsify/helper/newsapi.dart';
+import 'package:Newsify/models/article.dart';
 
 import 'components/article_card.dart';
 import 'components/title.dart';

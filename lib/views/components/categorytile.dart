@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/views/news_category.dart';
+import 'package:Newsify/views/news_category.dart';
 
 class CategoryTile extends StatelessWidget {
   final imageurl, name;

@@ -1,7 +1,38 @@
+import 'dart:async';
+
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:Newsify/views/home.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
+  @override
+  _SplashScreenState createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen>
+    with TickerProviderStateMixin {
+  AnimationController mainController;
+  Animation mainAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    mainController = AnimationController(
+      duration: Duration(milliseconds: 1500),
+      vsync: this,
+    );
+    mainAnimation = ColorTween(begin: Colors.white, end: Colors.black)
+        .animate(mainController);
+    mainController.forward();
+    mainController.addListener(() {
+      setState(() {});
+    });
+    Timer(
+        Duration(seconds: 3),
+        () => Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => Home())));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +50,7 @@ class SplashScreen extends StatelessWidget {
             Icon(
               Icons.receipt,
               size: 150,
-              color: Colors.black,
+              color: mainAnimation.value,
             ),
             SizedBox(
               height: 10,
@@ -27,16 +58,18 @@ class SplashScreen extends StatelessWidget {
             Text(
               'Newsify',
               style: TextStyle(
-                fontSize: 32,
-                fontFamily: 'Poppins',
-              ),
+                  fontSize: 32,
+                  fontFamily: 'Poppins',
+                  color: mainAnimation.value),
             ),
             SizedBox(
               height: 5,
             ),
             TypewriterAnimatedTextKit(
-              speed: Duration(milliseconds: 2000),
+              speed: Duration(milliseconds: 50),
+              totalRepeatCount: 1,
               text: ['For Stories That Matter.'],
+              textStyle: TextStyle(fontFamily: 'Poppins', fontSize: 15),
             ),
             Expanded(child: Divider()),
             Row(
@@ -48,7 +81,7 @@ class SplashScreen extends StatelessWidget {
                     fontSize: 14,
                     fontFamily: 'Poppins',
                     fontStyle: FontStyle.normal,
-                    color: Colors.black,
+                    color: mainAnimation.value,
                   ),
                 ),
                 Text(
@@ -57,7 +90,7 @@ class SplashScreen extends StatelessWidget {
                     fontSize: 14,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.bold,
-                    color: Colors.black,
+                    color: mainAnimation.value,
                   ),
                 ),
               ],

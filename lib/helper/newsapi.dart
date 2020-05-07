@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:news_app/models/article.dart';
+import 'package:Newsify/models/article.dart';
 import 'package:http/http.dart' as http;
 
 import '../secrets.dart';

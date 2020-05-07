@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/blocs/theme.dart';
-import 'package:news_app/helper/data.dart';
-import 'package:news_app/helper/newsapi.dart';
-import 'package:news_app/models/article.dart';
-import 'package:news_app/models/categoryModel.dart';
-import 'package:news_app/views/components/article_card.dart';
-import 'package:news_app/views/components/categorytile.dart';
+import 'package:Newsify/blocs/theme.dart';
+import 'package:Newsify/helper/data.dart';
+import 'package:Newsify/helper/newsapi.dart';
+import 'package:Newsify/models/article.dart';
+import 'package:Newsify/models/categoryModel.dart';
+import 'package:Newsify/views/components/article_card.dart';
+import 'package:Newsify/views/components/categorytile.dart';
 import 'package:provider/provider.dart';
 
 import 'about.dart';
