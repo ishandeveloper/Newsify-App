@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:news_app/blocs/theme.dart';
 import 'package:news_app/helper/data.dart';
 import 'package:news_app/helper/newsapi.dart';
@@ -83,7 +84,7 @@ class _HomeState extends State<Home> {
                 ),
                 loading
                     ? Container(
-                      height: MediaQuery.of(context).size.height - 200,
+                        height: MediaQuery.of(context).size.height - 200,
                         alignment: Alignment.center,
                         child: CircularProgressIndicator(
                           valueColor: AlwaysStoppedAnimation<Color>(
@@ -93,17 +94,20 @@ class _HomeState extends State<Home> {
                       )
                     : Container(
                         height: MediaQuery.of(context).size.height - 200,
-                        child: ListView.builder(
-                            shrinkWrap: true,
-                            itemCount: articles.length,
-                            itemBuilder: (context, index) {
-                              return ArticleCard(
-                                url:articles[index].url,
-                                description: articles[index].description,
-                                title: articles[index].title,
-                                imageUrl: articles[index].imageUrl,
-                              );
-                            }),
+                        child: LiquidPullToRefresh(
+                          onRefresh: getNews,
+                          child: ListView.builder(
+                              shrinkWrap: true,
+                              itemCount: articles.length,
+                              itemBuilder: (context, index) {
+                                return ArticleCard(
+                                  url: articles[index].url,
+                                  description: articles[index].description,
+                                  title: articles[index].title,
+                                  imageUrl: articles[index].imageUrl,
+                                );
+                              }),
+                        ),
                       )
                 //NEWS ARTICLES
                 // Container(

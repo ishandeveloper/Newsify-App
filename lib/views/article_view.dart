@@ -28,10 +28,15 @@ class _ArticleViewState extends State<ArticleView> {
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 8),
           child: AppBar(
-            leading: Icon(
-              Icons.receipt,
-              size: 30,
-              color: lighttheme ? Colors.white : Colors.black,
+            leading: GestureDetector(
+              onTap: (){
+                Navigator.pop(context);
+              },
+                          child: Icon(
+                Icons.arrow_back_ios,
+                size: 30,
+                color: lighttheme ? Colors.white : Colors.black,
+              ),
             ),
             actions: <Widget>[
               IconButton(
@@ -56,13 +61,18 @@ class _ArticleViewState extends State<ArticleView> {
               onPageFinished: _handleLoad,
               javascriptMode: JavascriptMode.disabled,
               initialUrl: widget.articleLink,
+              
             ),
 
           ),
           Container(
             color: Colors.white,
             child: Center(
-              child: CircularProgressIndicator(),
+              child: CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(
+                            lighttheme ? Colors.white : Colors.black,
+                          ),
+              ),
             ),
           ),
         ],
