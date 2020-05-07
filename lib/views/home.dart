@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:news_app/blocs/theme.dart';
 import 'package:provider/provider.dart';
 
-bool lighttheme = true;
+bool lighttheme = false;
 bool initial=true;
 class Home extends StatefulWidget {
   @override

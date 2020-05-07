@@ -6,7 +6,7 @@ class ThemeChanger with ChangeNotifier {
   ThemeChanger(this._themeData);
   bool initial = true;
 
-  getTheme() => initial ? _themeData = getDarkTheme() : _themeData;
+  getTheme() => initial ? _themeData = getLightTheme() : _themeData;
 
   lightTheme() {
     initial = false;
