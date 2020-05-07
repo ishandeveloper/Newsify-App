@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class ArticleCard extends StatelessWidget {
@@ -19,7 +20,7 @@ class ArticleCard extends StatelessWidget {
           decoration: BoxDecoration(),
           child: Column(
             children: <Widget>[
-              Image.network(imageUrl,height: 200, width:500,fit: BoxFit.cover,),
+              CachedNetworkImage(imageUrl:imageUrl,height: 200, width:500,fit: BoxFit.cover,),
               SizedBox(height: 8,),
               Text(
                 title,
