@@ -8,6 +8,7 @@ import 'package:news_app/views/components/article_card.dart';
 import 'package:news_app/views/components/categorytile.dart';
 import 'package:provider/provider.dart';
 
+import 'about.dart';
 import 'components/title.dart';
 
 bool lighttheme = false;
@@ -112,7 +113,6 @@ class _HomeState extends State<Home> {
                               }),
                         ),
                       )
-              
               ],
             ),
           ),
@@ -140,7 +140,10 @@ class _HomeState extends State<Home> {
           Icons.info,
           color: lighttheme ? Colors.white : Colors.black,
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => AboutPage()));
+        },
       )
     ];
   }
