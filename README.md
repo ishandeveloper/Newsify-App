@@ -1,3 +1,6 @@
+[![HitCount](http://hits.dwyl.com/ishandeveloper/Newsify-App.svg)](http://hits.dwyl.com/ishandeveloper/Newsify-App)
+
+
 <img src="./screenshots/icon.png" width="200px">
 
 # Newsify App
@@ -6,15 +9,20 @@ This is a flutter based <b>modern news app 🗞️</b> which uses NewsAPI to fet
 
 The idea is to keep the app super simple while demonstrating new libraries and tools which makes it easier to build high quality Flutter applications.
 
+##### P.S : SUPPORTS BOTH LIGHT AND DARK MODE! 😉
 ##### Download APK
 <pre><a href="https://github.com/ishandeveloper/Newsify-App/raw/master/app.apk">https://github.com/ishandeveloper/Newsify-App/raw/master/app.apk</a></pre>
 
 
 ### Demo
 
-  <img src="https://github.com/ishandeveloper/Newsify-App/blob/master/Screenshots/demo.gif?raw=false" width="30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/ishandeveloper/Newsify-App/blob/master/Screenshots/1.jpg?raw=false" width="30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/ishandeveloper/Newsify-App/blob/master/Screenshots/animate.gif?raw=false" width="30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/ishandeveloper/Newsify-App/blob/master/Screenshots/2.jpg?raw=false" width="30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/ishandeveloper/Newsify-App/blob/master/Screenshots/3.jpg?raw=false" width="30%">
-  
-  
+  <img src="./screenshots/demo.gif" width="40%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./screenshots/themeswitch.gif" width="40%">
+
+###### Light Theme
+<img src="./screenshots/light/1.jpg" width="30%">&nbsp;&nbsp;&nbsp;<img src="./screenshots/light/2.jpg" width="30%">&nbsp;&nbsp;&nbsp;<img src="./screenshots/light/3.jpg" width="30%">
+
+###### Dark Theme
+  <img src="./screenshots/dark/1.jpg" width="30%">&nbsp;&nbsp;&nbsp;<img src="./screenshots/dark/2.jpg" width="30%">&nbsp;&nbsp;&nbsp;<img src="./screenshots/dark/3.jpg" width="30%">&nbsp;&nbsp;&nbsp;
 ### Dependencies
 
 1. [Provider](https://pub.dev/packages/provider)
