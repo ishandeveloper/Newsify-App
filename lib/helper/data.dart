@@ -1,4 +1,4 @@
-import 'package:news_app/models/categoryModel.dart';
+import 'package:Newsify/models/categoryModel.dart';
 
 List<CategoryModel> getCategories() {
   List<CategoryModel> myCategories = List<CategoryModel>();
@@ -28,5 +28,11 @@ List<CategoryModel> getCategories() {
   categoryModel.imageURL = "assets/hostedImages/entertainment.jpg";
   myCategories.add(categoryModel);
 
+  //5
+
+  categoryModel = new CategoryModel();
+  categoryModel.categoryName = "Technology";
+  categoryModel.imageURL = "assets/hostedImages/tech.jpg";
+  myCategories.add(categoryModel);
   return myCategories;
 }
