@@ -18,43 +18,52 @@ class _HomeState extends State<Home> {
     ThemeChanger _themechanger = Provider.of<ThemeChanger>(context);
 
     return Scaffold(
-      appBar: AppBar(
-        actions: appbarActions(_themechanger),
-        centerTitle: false,
-        elevation: 0,
-        title: NewsifyTitle(),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(80),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8),
+          child: AppBar(
+            leading: Icon(
+              Icons.receipt,
+              size: 30,
+              color: lighttheme ? Colors.white : Colors.black,
+            ),
+            actions: appbarActions(_themechanger),
+            centerTitle: false,
+            elevation: 0,
+            title: NewsifyTitle(),
+          ),
+        ),
       ),
+      body:Container(
+        
+      )
     );
   }
 
-
-
-
   List<Widget> appbarActions(ThemeChanger _themechanger) {
     return <Widget>[
-        IconButton(
-          icon: Icon(
-            Icons.brightness_6,
-            color: lighttheme ? Colors.white : Colors.black,
-          ),
-          onPressed: () {
-            lighttheme
-                ? _themechanger.lightTheme()
-                : _themechanger.darkTheme();
-            if (lighttheme == true) {
-              lighttheme = false;
-            } else {
-              lighttheme = true;
-            }
-          },
+      IconButton(
+        icon: Icon(
+          Icons.brightness_6,
+          color: lighttheme ? Colors.white : Colors.black,
         ),
-        IconButton(
-          icon: Icon(
-            Icons.info,
-            color: lighttheme ? Colors.white : Colors.black,
-          ),
-          onPressed: () {},
-        )
-      ];
+        onPressed: () {
+          lighttheme ? _themechanger.lightTheme() : _themechanger.darkTheme();
+          if (lighttheme == true) {
+            lighttheme = false;
+          } else {
+            lighttheme = true;
+          }
+        },
+      ),
+      IconButton(
+        icon: Icon(
+          Icons.info,
+          color: lighttheme ? Colors.white : Colors.black,
+        ),
+        onPressed: () {},
+      )
+    ];
   }
 }

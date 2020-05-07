@@ -13,7 +13,7 @@ class NewsifyTitle extends StatelessWidget {
       children: <Widget>[
         Text(
           'Newsify',
-          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20),
+          style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
         ),
         Text(
           'by ishandeveloper',

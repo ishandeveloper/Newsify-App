@@ -26,7 +26,7 @@ class ThemeChanger with ChangeNotifier {
       appBarTheme: AppBarTheme(
         color: Colors.black,
         textTheme: TextTheme(
-          headline6: TextStyle(fontSize: 18, color: Colors.white),
+          headline6: TextStyle(fontFamily: 'Poppins',fontSize: 18, color: Colors.white),
         ),
       ),
     );
@@ -39,7 +39,7 @@ class ThemeChanger with ChangeNotifier {
       appBarTheme: AppBarTheme(
         color: Colors.white,
         textTheme: TextTheme(
-          headline6: TextStyle(fontSize: 18, color: Colors.black),
+          headline6: TextStyle(fontFamily: 'Poppins',fontSize: 18, color: Colors.black),
         ),
       ),
     );
