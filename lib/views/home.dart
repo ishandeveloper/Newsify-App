@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/blocs/theme.dart';
 import 'package:news_app/helper/data.dart';
+import 'package:news_app/helper/newsapi.dart';
+import 'package:news_app/models/article.dart';
 import 'package:news_app/models/categoryModel.dart';
+import 'package:news_app/views/components/article_card.dart';
 import 'package:news_app/views/components/categorytile.dart';
 import 'package:provider/provider.dart';
 
@@ -16,12 +19,23 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List<CategoryModel> categories = new List<CategoryModel>();
-
+  List<CategoryModel> categories = List<CategoryModel>();
+  List<ArticleModel> articles = List<ArticleModel>();
+  bool loading = false;
   @override
   void initState() {
     super.initState();
     categories = getCategories();
+    getNews();
+  }
+
+  getNews() async {
+    News updatedNews = News();
+    await updatedNews.getNews();
+    articles = updatedNews.articles;
+    setState(() {
+      loading = false;
+    });
   }
 
   @override
@@ -46,26 +60,54 @@ class _HomeState extends State<Home> {
             ),
           ),
         ),
-        body: Container(
-          child: Column(
-            
-            children: <Widget>[
-              Container(
-                height: 100,
-                child: ListView.builder(
-                  itemCount: categories.length,
-                  shrinkWrap: true,
-                  
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    return CategoryTile(
-                      imageurl: categories[index].imageURL,
-                      name: categories[index].categoryName,
-                    );
-                  },
+        body: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Container(
+            child: Column(
+              children: <Widget>[
+                // //CATEGORIES
+                Container(
+                  height: 80,
+                  child: ListView.builder(
+                    itemCount: categories.length,
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return CategoryTile(
+                        imageurl: categories[index].imageURL,
+                        name: categories[index].categoryName,
+                      );
+                    },
+                  ),
                 ),
-              )
-            ],
+                Container(
+                  height: MediaQuery.of(context).size.height-200,
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: articles.length,
+                    itemBuilder: (context,index){
+                    return ArticleCard(
+                      description: articles[index].description,
+                            title: articles[index].title,
+                            imageUrl: articles[index].imageUrl,
+                    );
+                  }),
+                )
+                //NEWS ARTICLES
+              // Container(
+              //   child: ListView.builder(
+              //         itemCount: articles.length,
+              //         shrinkWrap: true,
+              //         itemBuilder: (context, index) {
+              //           return ArticleCard(
+              //             description: articles[index].description,
+              //             title: articles[index].title,
+              //             imageUrl: articles[index].imageUrl,
+              //           );
+              //         }),
+              // )
+              ],
+            ),
           ),
         ));
   }
