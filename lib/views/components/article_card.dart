@@ -17,7 +17,6 @@ class ArticleCard extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
       child: GestureDetector(
         onTap: () {
-          print(url);
           Navigator.push(
             context,
             MaterialPageRoute(

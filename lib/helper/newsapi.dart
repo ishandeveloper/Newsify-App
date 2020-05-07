@@ -34,7 +34,7 @@ class News {
 
 class CategoryNews {
   List<ArticleModel> articles = [];
-  Future<void> getNews(String category) async {
+  Future<void> getCategoryNews(String category) async {
     String url =
         'https://newsapi.org/v2/top-headlines?category=$category&country=in&apiKey=$apiKey';
     var response = await http.get(url);

@@ -92,7 +92,7 @@ class _HomeState extends State<Home> {
                         ),
                       )
                     : Container(
-                        height: MediaQuery.of(context).size.height - 200,
+                        height: MediaQuery.of(context).size.height - 170,
                         child: RefreshIndicator(
                           backgroundColor:
                               lighttheme ? Colors.black : Colors.white,
@@ -112,19 +112,7 @@ class _HomeState extends State<Home> {
                               }),
                         ),
                       )
-                //NEWS ARTICLES
-                // Container(
-                //   child: ListView.builder(
-                //         itemCount: articles.length,
-                //         shrinkWrap: true,
-                //         itemBuilder: (context, index) {
-                //           return ArticleCard(
-                //             description: articles[index].description,
-                //             title: articles[index].title,
-                //             imageUrl: articles[index].imageUrl,
-                //           );
-                //         }),
-                // )
+              
               ],
             ),
           ),
