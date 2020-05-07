@@ -29,4 +29,6 @@ List<CategoryModel> getCategories() {
       'https://github.com/ishandeveloper/Newsify-App/blob/master/assets/hostedImages/general.jpg?raw=false';
   category.add(categoryModel);
 
+  return category;
+
 }
