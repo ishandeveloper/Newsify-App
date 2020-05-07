@@ -21,7 +21,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   List<CategoryModel> categories = List<CategoryModel>();
   List<ArticleModel> articles = List<ArticleModel>();
-  bool loading = false;
+  bool loading = true;
   @override
   void initState() {
     super.initState();
@@ -80,32 +80,42 @@ class _HomeState extends State<Home> {
                     },
                   ),
                 ),
-                Container(
-                  height: MediaQuery.of(context).size.height-200,
-                  child: ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: articles.length,
-                    itemBuilder: (context,index){
-                    return ArticleCard(
-                      description: articles[index].description,
-                            title: articles[index].title,
-                            imageUrl: articles[index].imageUrl,
-                    );
-                  }),
-                )
+                loading
+                    ? Container(
+                      height: MediaQuery.of(context).size.height - 200,
+                        alignment: Alignment.center,
+                        child: CircularProgressIndicator(
+                          valueColor: AlwaysStoppedAnimation<Color>(
+                            lighttheme ? Colors.white : Colors.black,
+                          ),
+                        ),
+                      )
+                    : Container(
+                        height: MediaQuery.of(context).size.height - 200,
+                        child: ListView.builder(
+                            shrinkWrap: true,
+                            itemCount: articles.length,
+                            itemBuilder: (context, index) {
+                              return ArticleCard(
+                                description: articles[index].description,
+                                title: articles[index].title,
+                                imageUrl: articles[index].imageUrl,
+                              );
+                            }),
+                      )
                 //NEWS ARTICLES
-              // Container(
-              //   child: ListView.builder(
-              //         itemCount: articles.length,
-              //         shrinkWrap: true,
-              //         itemBuilder: (context, index) {
-              //           return ArticleCard(
-              //             description: articles[index].description,
-              //             title: articles[index].title,
-              //             imageUrl: articles[index].imageUrl,
-              //           );
-              //         }),
-              // )
+                // Container(
+                //   child: ListView.builder(
+                //         itemCount: articles.length,
+                //         shrinkWrap: true,
+                //         itemBuilder: (context, index) {
+                //           return ArticleCard(
+                //             description: articles[index].description,
+                //             title: articles[index].title,
+                //             imageUrl: articles[index].imageUrl,
+                //           );
+                //         }),
+                // )
               ],
             ),
           ),
