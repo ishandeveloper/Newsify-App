@@ -63,58 +63,58 @@ class _HomeState extends State<Home> {
         ),
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
-          child: Container(
-            child: Column(
-              children: <Widget>[
-                // //CATEGORIES
-                Container(
-                  height: 60,
-                  child: ListView.builder(
-                    itemCount: categories.length,
-                    shrinkWrap: true,
-                    physics: ClampingScrollPhysics(),
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) {
-                      return CategoryTile(
-                        imageurl: categories[index].imageURL,
-                        name: categories[index].categoryName,
-                      );
-                    },
-                  ),
+          
+          child: Column(
+            children: <Widget>[
+              // //CATEGORIES
+              Container(
+                height: 55,
+                child: ListView.builder(
+                  itemCount: categories.length,
+                  shrinkWrap: true,
+                  physics: ClampingScrollPhysics(),
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return CategoryTile(
+                      imageurl: categories[index].imageURL,
+                      name: categories[index].categoryName,
+                    );
+                  },
                 ),
-                loading
-                    ? Container(
-                        height: MediaQuery.of(context).size.height - 200,
-                        alignment: Alignment.center,
-                        child: CircularProgressIndicator(
-                          valueColor: AlwaysStoppedAnimation<Color>(
-                            lighttheme ? Colors.white : Colors.black,
-                          ),
+              ),
+              loading
+                  ? Container(
+                      height: MediaQuery.of(context).size.height - 200,
+                      alignment: Alignment.center,
+                      child: CircularProgressIndicator(
+                        valueColor: AlwaysStoppedAnimation<Color>(
+                          lighttheme ? Colors.white : Colors.black,
                         ),
-                      )
-                    : Container(
-                        height: MediaQuery.of(context).size.height - 170,
-                        child: RefreshIndicator(
-                          backgroundColor:
-                              lighttheme ? Colors.black : Colors.white,
-                          color: lighttheme ? Colors.white : Colors.black,
-                          onRefresh: () => getNews(),
-                          child: ListView.builder(
-                              shrinkWrap: true,
-                              itemCount: articles.length,
-                              physics: AlwaysScrollableScrollPhysics(),
-                              itemBuilder: (context, index) {
-                                return ArticleCard(
-                                  url: articles[index].url,
-                                  description: articles[index].description,
-                                  title: articles[index].title,
-                                  imageUrl: articles[index].imageUrl,
-                                );
-                              }),
-                        ),
-                      )
-              ],
-            ),
+                      ),
+                    )
+                    // : Container(height:MediaQuery.of(context).size.height*2,color:Colors.blue),
+                  : Container(
+                      height: MediaQuery.of(context).size.height - 170,
+                      child: RefreshIndicator(
+                        backgroundColor:
+                            lighttheme ? Colors.black : Colors.white,
+                        color: lighttheme ? Colors.white : Colors.black,
+                        onRefresh: () => getNews(),
+                        child: ListView.builder(
+                            shrinkWrap: true,
+                            itemCount: articles.length,
+                            physics: AlwaysScrollableScrollPhysics(),
+                            itemBuilder: (context, index) {
+                              return ArticleCard(
+                                url: articles[index].url,
+                                description: articles[index].description,
+                                title: articles[index].title,
+                                imageUrl: articles[index].imageUrl,
+                              );
+                            }),
+                      ),
+                    )
+            ],
           ),
         ));
   }

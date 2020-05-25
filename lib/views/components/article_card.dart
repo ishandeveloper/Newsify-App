@@ -30,7 +30,9 @@ class ArticleCard extends StatelessWidget {
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(15), topRight: Radius.circular(15)),
           child: Container(
-            decoration: BoxDecoration(),
+            decoration: BoxDecoration(
+              
+            ),
             child: Column(
               children: <Widget>[
                 CachedNetworkImage(
